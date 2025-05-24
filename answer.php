@@ -29,32 +29,30 @@
       <div class="right-image">
         <img src="./images/exponent.png" alt="Exponent image" width="500" />
       </div>
-      <br />
-      <div class="page-content-guide">Enter two numbers to multiply:</div>
-      <div class="page-content">
-        <form action="./answer.php" method="GET">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="base-number" />
-            <label class="mdl-textfield__label" for="base-number">Your base number here...</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <label>to the power of</label>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="exponent-number" />
-            <label class="mdl-textfield__label" for="exponent-number">Your exponent number here...</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br />
+      <div class="page-content-answer">
+        <div id="answer">
+          <?php
+          // input
+          $counter = 0;
+          $answer = 1;
+          $baseNumber = $_GET["base-number"];
+          $exponentNumber = $_GET["exponent-number"];
+
+          // process
+          while ($counter < $exponentNumber) {
+            $counter = $counter + 1;
+            $answer = $answer * $baseNumber;
+          } {
+            // output
+            echo $baseNumber . ' to the power of ' . $exponentNumber . " is: " . $answer . '.';
+          }
+          ?>
+        </div>
       </div>
-      <br />
-      <!-- Accent-colored raised button with ripple -->
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-        type="submit">
-        Calculate
-      </button>
-      </form>
-  </div>
-  </main>
+      <div class="page-content-return">
+        <a href="./index.php">Return ...</a>
+      </div>
+    </main>
   </div>
 </body>
 
